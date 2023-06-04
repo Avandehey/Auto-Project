@@ -1,22 +1,23 @@
-import React from 'react' ;
+import React from 'react';
 
-interface AutoCardProp {
-    id: string,
-    brand: string,
-    model: string,
-    year: number,
+export interface AutoCardProp {
+  id: string;
+  name: string;
+  year: number;
 }
 
-const AutoCard: React.FC<AutoCardProp> = (props : AutoCardProp) => {
-    const { brand, model, year} = props;
+const AutoCard: React.FC<AutoCardProp> = (props: AutoCardProp) => {
+  const { name, year } = props;
 
-    return(
-        <div>
-            <h1>{brand}</h1>
-            <h2>{model}</h2>
-            <h3>{year}</h3>
-        </div>
-    )
-}
+  const [brand, model] = name.split(' ');
 
-export default AutoCard
+  return (
+    <div>
+      <h1>Brand: {brand}</h1>
+      <h2>Model: {model}</h2>
+      <h3>Year: {year}</h3>
+    </div>
+  );
+};
+
+export default AutoCard;
